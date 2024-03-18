@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <iostream>
+using namespace std;
 void PrintBits(unsigned int x)
 {
     int i;
@@ -17,8 +19,14 @@ void PrintBitsOfByte(unsigned int x)
     }
     printf("\n");
 }
+int isPositive(int x)
+{
+    return ((x >> 31) & 1) ^ (!(x == 0));
+}
+
 int main()
 {
-    PrintBits(51 >> 31);
+    cout << !(-10) << endl;
+
     return 0;
 }

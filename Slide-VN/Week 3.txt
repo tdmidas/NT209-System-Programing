@@ -3,7 +3,7 @@ Week 3
 ** Chỉ có lệnh leal là ko truy xuất ô nhớ
 
 + Với %eax=x, %ecx=y
-5x+9 - > leal 0x4( %eax, %eax, 4) ( vị trí số 4 chỉ có thể là nằm trong các giá trị 1,2,4,8,..)
+5x+9 - > leal 0x9( %eax, %eax, 4) ( vị trí số 4 chỉ có thể là nằm trong các giá trị 1,2,4,8,..)
 
 6x+5  -> leal (%eax,%eax,4), %edx   5x
          leal 0x5(%eax,%edx), %ecx  6x+5
