@@ -1,0 +1,61 @@
+Week 4
+
++ Với lệnh cmpl src, dst và testl như cmpl b,a -> a,b không đổi , chỉ thay đổi giá trị các flag CF,ZF,SF,OF
+
+
+ %eax = x %ebx = y %ecx = z
++ x==y : cmpl %eax,%ebx
+         je .L1
+
++ y!=z : cmpl %ebx,%ecx
+         jne .L1
+
++ z>x:   cmpl %eax,%ecx
+         jg .L1
+
++ x<0:   cmpl $0, %eax
+         jl .L1
++ y==0 : cmpl $0,%ebx          test %ebx,%ebx
+         je .L1                jz .L1
+
++ z:     cmpl $0,%ecx          test %ecx,%ecx
+         jns .L1               jnz .L1
+          
+
++ true   jmp .L1
+
+//Ví dụ 2.1
+
+movl
+cmpl $2,8(%ebp)
+jle .False
+movl 8(%ebp),%eax
+addl 12(%ebp),%eax
+movl %eax, -4(%ebp) 
+jmp .Done
+
+False:
+     movl 8(%ebp),%eax
+     subl 12(%ebp),%eax
+     movl %eax, -4(%ebp)
+Done:
+
+
+
+//Ví dụ 2.2
+
+movl ..
+cmpl $0,8(%ebp)
+je   False
+subl $1,12(%ebp)
+jmp  Done
+
+.False:
+.Done:
+movl 8(%ebp),%eax   //%eax=x
+addl 12(%ebp),%eax  //x=x+y
+movl %eax,-4(%ebp) //sum=%eax
+
+
+
+
